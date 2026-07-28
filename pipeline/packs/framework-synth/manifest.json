@@ -512,6 +512,19 @@
       },
       "defaultColor": "#ffa741",
       "intensity": 1.0
+    },
+    {
+      "id": "visor_glow",
+      "label": "Visor Eye Glow",
+      "material": [
+        "visor"
+      ],
+      "mask": {
+        "texture": "textures/packed/pack2.png",
+        "channel": "r"
+      },
+      "defaultColor": "#ffbf00",
+      "intensity": 1.2
     }
   ],
   "palettes": [
