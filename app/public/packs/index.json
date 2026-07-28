@@ -1,0 +1,20 @@
+{
+  "packs": [
+    {
+      "id": "zairiza-synth-sfw",
+      "path": "packs/zairiza-synth-sfw/"
+    },
+    {
+      "id": "zairiza-synth-nsfw",
+      "path": "packs/zairiza-synth-nsfw/"
+    },
+    {
+      "id": "placeholder",
+      "path": "packs/placeholder/"
+    },
+    {
+      "id": "framework-synth",
+      "path": "packs/framework-synth/"
+    }
+  ]
+}

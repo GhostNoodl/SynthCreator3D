@@ -20,8 +20,7 @@ dist/
 dist-ssr/
 *.local
 
-# Generated model packs (npm run gen:placeholder)
-app/public/packs/
+# Generated model packs (contents ignored; only index.json is tracked)
 
 # Tauri / Rust
 app/src-tauri/target/
@@ -40,4 +39,3 @@ Thumbs.db
 # update signing keys must never be committed
 *.key
 *.key.pub
-Stuff2/
