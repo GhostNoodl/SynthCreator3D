@@ -1,8 +1,11 @@
 # Licensed model content — never commit (see docs/licensing.md)
 assets/
 Stuff/
+Stuff2/
 tools/
 pipeline/out/
+app/public/packs/*
+!app/public/packs/index.json
 *.blend
 *.blend1
 *.fbx
