@@ -1,0 +1,1888 @@
+{
+  "schemaVersion": 1,
+  "id": "zairiza-synth-nsfw",
+  "name": "Synth (Zairiza) \u2014 NSFW (18+)",
+  "nsfw": true,
+  "model": "model.glb",
+  "materials": {
+    "body": {
+      "glbMaterial": "MainTex",
+      "albedo": "textures/body_albedo.png"
+    },
+    "eyes": {
+      "glbMaterial": "EyeTex",
+      "albedo": "textures/body_albedo.png"
+    },
+    "clothing": {
+      "glbMaterial": "ClothingTex",
+      "albedo": "textures/clothing_albedo.png"
+    }
+  },
+  "toggleGroups": [
+    {
+      "id": "hoodie",
+      "label": "Hoodie",
+      "mode": "exclusive",
+      "options": [
+        {
+          "id": "full",
+          "label": "Full",
+          "nodes": [
+            "Hoodie"
+          ],
+          "default": false,
+          "morphs": {
+            "Hoodie_ON": 1,
+            "Hoodie_Sleeveless_ON": 0,
+            "Sleeves_OFF": 0,
+            "CropTop": 0
+          }
+        },
+        {
+          "id": "sleeveless",
+          "label": "Sleeveless",
+          "nodes": [
+            "Hoodie"
+          ],
+          "morphs": {
+            "Hoodie_ON": 0,
+            "Hoodie_Sleeveless_ON": 1,
+            "Sleeves_OFF": 1,
+            "CropTop": 0
+          },
+          "default": false
+        },
+        {
+          "id": "cropTop",
+          "label": "Crop Top",
+          "nodes": [
+            "Hoodie"
+          ],
+          "morphs": {
+            "Hoodie_ON": 1,
+            "Hoodie_Sleeveless_ON": 0,
+            "Sleeves_OFF": 0,
+            "CropTop": 1
+          },
+          "default": false
+        },
+        {
+          "id": "none",
+          "label": "None",
+          "nodes": [],
+          "morphs": {
+            "Hoodie_ON": 0,
+            "Hoodie_Sleeveless_ON": 0,
+            "Sleeves_OFF": 0,
+            "CropTop": 0
+          },
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "pants",
+      "label": "Pants",
+      "mode": "exclusive",
+      "options": [
+        {
+          "id": "full",
+          "label": "Pants",
+          "nodes": [
+            "Pants"
+          ],
+          "default": false,
+          "morphs": {
+            "PantsON": 1,
+            "Shorts": 0,
+            "ShortShortsON": 0,
+            "ShortShorts": 0
+          }
+        },
+        {
+          "id": "shorts",
+          "label": "Shorts",
+          "nodes": [
+            "Pants"
+          ],
+          "morphs": {
+            "PantsON": 1,
+            "Shorts": 1,
+            "ShortShortsON": 0,
+            "ShortShorts": 0
+          },
+          "default": false
+        },
+        {
+          "id": "shortShorts",
+          "label": "Short Shorts",
+          "nodes": [
+            "Pants"
+          ],
+          "morphs": {
+            "PantsON": 0,
+            "Shorts": 0,
+            "ShortShortsON": 1,
+            "ShortShorts": 1
+          },
+          "default": false
+        },
+        {
+          "id": "none",
+          "label": "None",
+          "nodes": [],
+          "morphs": {
+            "PantsON": 0,
+            "Shorts": 0,
+            "ShortShortsON": 0,
+            "ShortShorts": 0
+          },
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "bellyMesh",
+      "label": "Belly (separate mesh)",
+      "mode": "exclusive",
+      "options": [
+        {
+          "id": "off",
+          "label": "Hidden",
+          "nodes": [],
+          "default": true,
+          "morphs": {
+            "Belly_OFF": 1
+          }
+        },
+        {
+          "id": "on",
+          "label": "Shown",
+          "nodes": [
+            "Belly"
+          ],
+          "morphs": {
+            "Belly_OFF": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "chestType",
+      "label": "Chest Type",
+      "mode": "exclusive",
+      "options": [
+        {
+          "id": "boobs",
+          "label": "Boobs",
+          "default": true,
+          "morphs": {
+            "Boobs_OFF": 0,
+            "Pecs_OFF": 1,
+            "Boobs": 1
+          }
+        },
+        {
+          "id": "pecs",
+          "label": "Pecs",
+          "morphs": {
+            "Boobs_OFF": 1,
+            "Pecs_OFF": 0,
+            "Boobs": 0
+          }
+        },
+        {
+          "id": "flat",
+          "label": "Flat",
+          "morphs": {
+            "Boobs_OFF": 1,
+            "Pecs_OFF": 0,
+            "Pecs_Less": 1,
+            "Boobs": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "eyes",
+      "label": "Eyes",
+      "mode": "exclusive",
+      "options": [
+        {
+          "id": "main",
+          "label": "Main Eyes",
+          "default": true,
+          "morphs": {
+            "MainEyes_OFF": 0,
+            "AltEyes_OFF": 1
+          }
+        },
+        {
+          "id": "alt",
+          "label": "Alt Eyes (static)",
+          "morphs": {
+            "MainEyes_OFF": 1,
+            "AltEyes_OFF": 0
+          }
+        },
+        {
+          "id": "off",
+          "label": "Hidden",
+          "morphs": {
+            "MainEyes_OFF": 1,
+            "AltEyes_OFF": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "dickType",
+      "label": "Dick Type",
+      "mode": "exclusive",
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "nodes": [],
+          "default": true
+        },
+        {
+          "id": "human",
+          "label": "Human",
+          "nodes": [
+            "HumanDick"
+          ]
+        },
+        {
+          "id": "knotted",
+          "label": "Knotted",
+          "nodes": [
+            "KnottedDick"
+          ]
+        },
+        {
+          "id": "prehensile",
+          "label": "Prehensile",
+          "nodes": [
+            "PrehensileDick"
+          ]
+        },
+        {
+          "id": "horse",
+          "label": "Horse",
+          "nodes": [
+            "HorseCock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bitsAddOns",
+      "label": "Bits Add-Ons",
+      "mode": "independent",
+      "options": [
+        {
+          "id": "balls",
+          "label": "Balls",
+          "default": false,
+          "nodes": [
+            "Balls"
+          ],
+          "morphs": {
+            "Balls_On": 1
+          },
+          "morphsOff": {
+            "Balls_On": 0
+          }
+        },
+        {
+          "id": "sheath",
+          "label": "Sheath",
+          "default": false,
+          "nodes": [
+            "Sheath"
+          ]
+        },
+        {
+          "id": "vagina",
+          "label": "Vagina",
+          "default": false,
+          "morphs": {
+            "VagPiece_OFF": 0,
+            "SFWPiece_OFF": 1
+          },
+          "morphsOff": {
+            "VagPiece_OFF": 1,
+            "SFWPiece_OFF": 0
+          }
+        },
+        {
+          "id": "slit",
+          "label": "Slit",
+          "default": false,
+          "morphs": {
+            "SlitPiece_OFF": 0,
+            "SFWPiece_OFF": 1
+          },
+          "morphsOff": {
+            "SlitPiece_OFF": 1,
+            "SFWPiece_OFF": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "addOns",
+      "label": "Add-Ons",
+      "mode": "independent",
+      "options": [
+        {
+          "id": "tail",
+          "label": "Tail",
+          "default": false,
+          "morphs": {
+            "Tail_OFF": 0
+          },
+          "morphsOff": {
+            "Tail_OFF": 1
+          }
+        },
+        {
+          "id": "antenna",
+          "label": "Head Antenna",
+          "default": false,
+          "morphs": {
+            "Antenna_OFF": 0
+          },
+          "morphsOff": {
+            "Antenna_OFF": 1
+          }
+        },
+        {
+          "id": "neckFrills",
+          "label": "Neck Frills",
+          "default": false,
+          "morphs": {
+            "NeckFrills_OFF": 0
+          },
+          "morphsOff": {
+            "NeckFrills_OFF": 1
+          }
+        },
+        {
+          "id": "backFrills",
+          "label": "Back Frills",
+          "default": false,
+          "morphs": {
+            "BackFrills_OFF": 0
+          },
+          "morphsOff": {
+            "BackFrills_OFF": 1
+          }
+        },
+        {
+          "id": "armConnectors",
+          "label": "Arm Connectors",
+          "default": false,
+          "morphs": {
+            "ArmConnectors_OFF": 0
+          },
+          "morphsOff": {
+            "ArmConnectors_OFF": 1
+          }
+        },
+        {
+          "id": "handClaws",
+          "label": "Hand Claws",
+          "default": false,
+          "morphs": {
+            "HandClaws_OFF": 0
+          },
+          "morphsOff": {
+            "HandClaws_OFF": 1
+          }
+        },
+        {
+          "id": "toeClaws",
+          "label": "Toe Claws",
+          "default": false,
+          "morphs": {
+            "ToeClaws_OFF": 0
+          },
+          "morphsOff": {
+            "ToeClaws_OFF": 1
+          }
+        },
+        {
+          "id": "spineSpikes",
+          "label": "Spine Spikes",
+          "default": false,
+          "morphs": {
+            "Spine_Spikes": 1
+          }
+        },
+        {
+          "id": "twoFingers",
+          "label": "Two-Finger Hands",
+          "default": false,
+          "morphs": {
+            "Two_Fingers": 1
+          }
+        },
+        {
+          "id": "iris",
+          "label": "Iris",
+          "default": false,
+          "morphs": {
+            "Iris_OFF": 0
+          },
+          "morphsOff": {
+            "Iris_OFF": 1
+          }
+        },
+        {
+          "id": "eyebrows",
+          "label": "Eyebrows",
+          "default": false,
+          "morphs": {
+            "Eyebrows_OFF": 0
+          },
+          "morphsOff": {
+            "Eyebrows_OFF": 1
+          }
+        },
+        {
+          "id": "blush",
+          "label": "Blush",
+          "default": false,
+          "morphs": {
+            "Blush_OFF": 0
+          },
+          "morphsOff": {
+            "Blush_OFF": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "visorPieces",
+      "label": "Visor Screen Pieces",
+      "mode": "independent",
+      "options": [
+        {
+          "id": "vp1",
+          "label": "Piece 1",
+          "default": false,
+          "morphs": {
+            "VisorPiece01_OFF": 0
+          },
+          "morphsOff": {
+            "VisorPiece01_OFF": 1
+          }
+        },
+        {
+          "id": "vp2",
+          "label": "Piece 2",
+          "default": false,
+          "morphs": {
+            "VisoriPiece02_OFF": 0
+          },
+          "morphsOff": {
+            "VisoriPiece02_OFF": 1
+          }
+        },
+        {
+          "id": "vp3",
+          "label": "Piece 3",
+          "default": false,
+          "morphs": {
+            "VisorPiece03_OFF": 0
+          },
+          "morphsOff": {
+            "VisorPiece03_OFF": 1
+          }
+        },
+        {
+          "id": "vp4",
+          "label": "Piece 4",
+          "default": false,
+          "morphs": {
+            "VisorPiece04_OFF": 0
+          },
+          "morphsOff": {
+            "VisorPiece04_OFF": 1
+          }
+        },
+        {
+          "id": "vp5",
+          "label": "Piece 5",
+          "default": false,
+          "morphs": {
+            "VisorPiece05_OFF": 0
+          },
+          "morphsOff": {
+            "VisorPiece05_OFF": 1
+          }
+        },
+        {
+          "id": "vp6",
+          "label": "Piece 6",
+          "default": false,
+          "morphs": {
+            "VisorPiece06_OFF": 0
+          },
+          "morphsOff": {
+            "VisorPiece06_OFF": 1
+          }
+        },
+        {
+          "id": "vp7",
+          "label": "Piece 7",
+          "default": false,
+          "morphs": {
+            "VisorPiece07_OFF": 0
+          },
+          "morphsOff": {
+            "VisorPiece07_OFF": 1
+          }
+        },
+        {
+          "id": "vp8",
+          "label": "Piece 8",
+          "default": false,
+          "morphs": {
+            "VisorPiece08_OFF": 0
+          },
+          "morphsOff": {
+            "VisorPiece08_OFF": 1
+          }
+        }
+      ]
+    }
+  ],
+  "sliders": [
+    {
+      "id": "thickBody",
+      "label": "Thicker Body",
+      "group": "Body Shape",
+      "morphs": [
+        "Thick_Body",
+        "Thicker_Body"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "thickerUpperBody",
+      "label": "Thicker Upper Body",
+      "group": "Body Shape",
+      "morphs": [
+        "Thicker_UpperBody"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "thickerStomach",
+      "label": "Thicker Stomach",
+      "group": "Body Shape",
+      "morphs": [
+        "Thicker_Stomach"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "hipsButt",
+      "label": "Thigh + Butt",
+      "group": "Body Shape",
+      "morphs": [
+        "Thick_HipsButt"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "conflicts": [
+        "hips",
+        "butt"
+      ]
+    },
+    {
+      "id": "hips",
+      "label": "Thick Hips",
+      "group": "Body Shape",
+      "morphs": [
+        "Thick_Hips"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "conflicts": [
+        "hipsButt"
+      ]
+    },
+    {
+      "id": "butt",
+      "label": "Thick Butt",
+      "group": "Body Shape",
+      "morphs": [
+        "Thick_Butt"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "conflicts": [
+        "hipsButt"
+      ]
+    },
+    {
+      "id": "upperLegs",
+      "label": "Thicker Upper Legs",
+      "group": "Body Shape",
+      "morphs": [
+        "Thicker_UpperLegs"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "lowerLegs",
+      "label": "Thicker Lower Legs",
+      "group": "Body Shape",
+      "morphs": [
+        "Thicker_LowerLegs"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "thinnerChest",
+      "label": "Thinner Chest",
+      "group": "Body Shape",
+      "morphs": [
+        "Thinner_Chest"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "thinnerWaist",
+      "label": "Thinner Waist",
+      "group": "Body Shape",
+      "morphs": [
+        "Thinner_Waist"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "tailThickness",
+      "label": "Thicker Tail",
+      "group": "Body Shape",
+      "morphs": [
+        "Thick_Tail"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "boobsLess",
+      "label": "Boobs Smaller",
+      "group": "Chest",
+      "morphs": [
+        "Boobs_Less"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "conflicts": [
+        "boobsMore"
+      ]
+    },
+    {
+      "id": "boobsMore",
+      "label": "Boobs Larger",
+      "group": "Chest",
+      "morphs": [
+        "Boobs_More"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "conflicts": [
+        "boobsLess"
+      ]
+    },
+    {
+      "id": "pecsLess",
+      "label": "Pecs Smaller",
+      "group": "Chest",
+      "morphs": [
+        "Pecs_Less"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "conflicts": [
+        "pecsMore"
+      ]
+    },
+    {
+      "id": "pecsMore",
+      "label": "Pecs Larger",
+      "group": "Chest",
+      "morphs": [
+        "Pecs_More"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0,
+      "conflicts": [
+        "pecsLess"
+      ]
+    },
+    {
+      "id": "belly",
+      "label": "Belly",
+      "group": "Belly",
+      "morphs": [
+        "Belly1",
+        "Belly1On"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "belly2",
+      "label": "Belly (stage 2)",
+      "group": "Belly",
+      "morphs": [
+        "Belly2"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyeSlim",
+      "label": "Slim",
+      "group": "Eye Shape",
+      "morphs": [
+        "MainEye_Slim"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyeSquint",
+      "label": "Squint",
+      "group": "Eye Shape",
+      "morphs": [
+        "MainEyes_Squint"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyeWide",
+      "label": "Wide",
+      "group": "Eye Shape",
+      "morphs": [
+        "MainEyes_Wide"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyeCircular",
+      "label": "Circular",
+      "group": "Eye Shape",
+      "morphs": [
+        "MainEyes_Circular"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyeAngular",
+      "label": "Angular",
+      "group": "Eye Shape",
+      "morphs": [
+        "MainEyes_Angular"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyeFlipped",
+      "label": "Flipped",
+      "group": "Eye Shape",
+      "morphs": [
+        "MainEye_Flipped"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "irisDot",
+      "label": "Dot",
+      "group": "Iris Shape",
+      "morphs": [
+        "Iris_Dot"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "irisWide",
+      "label": "Wide",
+      "group": "Iris Shape",
+      "morphs": [
+        "Iris_Wide"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "irisThin",
+      "label": "Thin",
+      "group": "Iris Shape",
+      "morphs": [
+        "Iris_Thin"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyebrowsUp",
+      "label": "Up",
+      "group": "Eyebrows",
+      "morphs": [
+        "Eyebrows_Up"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyebrowsDown",
+      "label": "Down",
+      "group": "Eyebrows",
+      "morphs": [
+        "Eyebrows_Down"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyebrowsBack",
+      "label": "Back",
+      "group": "Eyebrows",
+      "morphs": [
+        "Eyebrows_Back"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "eyebrowsFlat",
+      "label": "Flat",
+      "group": "Eyebrows",
+      "morphs": [
+        "Eyebrows_Flat"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earsShort",
+      "label": "Short",
+      "group": "Ears",
+      "morphs": [
+        "Ears_Short"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earsAlt1",
+      "label": "Shape Alt 1",
+      "group": "Ears",
+      "morphs": [
+        "Ears_Shape_Alt1"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earsAlt2",
+      "label": "Shape Alt 2",
+      "group": "Ears",
+      "morphs": [
+        "Ears_Shape_Alt2"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earPointUp",
+      "label": "Point Up",
+      "group": "Ears",
+      "morphs": [
+        "Ear_Point_Up"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earPoint2",
+      "label": "Point 2",
+      "group": "Ears",
+      "morphs": [
+        "Ear_Point_2"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earPoint2Alt",
+      "label": "Point 2 Alt",
+      "group": "Ears",
+      "morphs": [
+        "Ear_Point_2_Alt"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earEndAlt",
+      "label": "End Alt",
+      "group": "Ears",
+      "morphs": [
+        "Ear_End_Alt"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earCurvy",
+      "label": "Curvy",
+      "group": "Ears",
+      "morphs": [
+        "Ear_Shape_Curvy"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earDroopy",
+      "label": "Droopy",
+      "group": "Ears",
+      "morphs": [
+        "Ear_Shape_Droopy"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earSlantUp",
+      "label": "Slant Up",
+      "group": "Ears",
+      "morphs": [
+        "Ear_Slant_Up"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "earBaseAlt",
+      "label": "Base Alt",
+      "group": "Ears",
+      "morphs": [
+        "Ear_Base_Alt"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "frontMouthPoint",
+      "label": "Front Point",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Front_Mouth_Point"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "frontMouthPointAlt",
+      "label": "Front Point Alt",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Front_Mouth_Point_Alt"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "frontMouthPointLong",
+      "label": "Front Point Long",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Front_Mouth_Point_Long"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "middleMouthPoint",
+      "label": "Middle Point",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Middle_Mouth_Point"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "backMouthPoint",
+      "label": "Back Point",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Back_Mouth_Point"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "mouthCenterFront",
+      "label": "Center Front Point",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Mouth_CenterFront_Point"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "jawPoint",
+      "label": "Jaw Point",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Jaw_Point"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "jawSidePoints",
+      "label": "Jaw Side Points",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Jaw_Side_Points"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "chinPoint1",
+      "label": "Chin Point 1",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Chin_Point1"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "chinPoint2",
+      "label": "Chin Point 2",
+      "group": "Visor Teeth",
+      "morphs": [
+        "Chin_Point2"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "frillsWide",
+      "label": "Wide",
+      "group": "Neck Frills",
+      "morphs": [
+        "NeickFills_Wide"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "frillsLonger",
+      "label": "Longer",
+      "group": "Neck Frills",
+      "morphs": [
+        "NeckFrills_Longer"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "frillsShorter",
+      "label": "Shorter",
+      "group": "Neck Frills",
+      "morphs": [
+        "NeckFrills_Shorter"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "buttWide",
+      "label": "Butt Wide",
+      "group": "NSFW",
+      "morphs": [
+        "ButtWide"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "slitOpen",
+      "label": "Slit Open",
+      "group": "NSFW",
+      "morphs": [
+        "SlitOpen"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "lipsOpen",
+      "label": "Lips Open",
+      "group": "NSFW",
+      "morphs": [
+        "LipsOpenShape"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "lipsSpread",
+      "label": "Lips Spread",
+      "group": "NSFW",
+      "morphs": [
+        "LipsSpreadShape"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "sheathOpen",
+      "label": "Sheath Open",
+      "group": "NSFW",
+      "morphs": [
+        "Sheath_Open"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "foreskin",
+      "label": "Foreskin Pullback",
+      "group": "NSFW",
+      "morphs": [
+        "Foreskin_Pullback"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "justTheTip",
+      "label": "Just The Tip (Knotted)",
+      "group": "NSFW",
+      "morphs": [
+        "KnottedDick_JustTheTip"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "horseInSheath",
+      "label": "Horse In Sheath",
+      "group": "NSFW",
+      "morphs": [
+        "HorseCock_InSheath"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    }
+  ],
+  "textureSets": [],
+  "colorRegions": [
+    {
+      "id": "under_belly",
+      "label": "Under Belly",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack0.png",
+        "channel": "r"
+      },
+      "defaultColor": "#f2f2f2"
+    },
+    {
+      "id": "secondary",
+      "label": "Secondary Color",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack0.png",
+        "channel": "g"
+      },
+      "defaultColor": "#f2f2f2"
+    },
+    {
+      "id": "main",
+      "label": "Main Color",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack0.png",
+        "channel": "b"
+      },
+      "defaultColor": "#f4f4f4"
+    },
+    {
+      "id": "shoulder",
+      "label": "Shoulder Secondary",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack0.png",
+        "channel": "a"
+      },
+      "defaultColor": "#f3f3f3"
+    },
+    {
+      "id": "inner_visor",
+      "label": "Inner Visor",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack1.png",
+        "channel": "r"
+      },
+      "defaultColor": "#000000"
+    },
+    {
+      "id": "visor",
+      "label": "Visor",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack1.png",
+        "channel": "g"
+      },
+      "defaultColor": "#000000"
+    },
+    {
+      "id": "claws",
+      "label": "Claws",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack1.png",
+        "channel": "b"
+      },
+      "defaultColor": "#efefef"
+    },
+    {
+      "id": "eyes",
+      "label": "Eyes",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack1.png",
+        "channel": "a"
+      },
+      "defaultColor": "#ffd251"
+    },
+    {
+      "id": "iris",
+      "label": "Iris",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack2.png",
+        "channel": "r"
+      },
+      "defaultColor": "#000000"
+    },
+    {
+      "id": "eyebrows",
+      "label": "Eyebrows",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack2.png",
+        "channel": "g"
+      },
+      "defaultColor": "#ffc14b"
+    },
+    {
+      "id": "alt_eyes",
+      "label": "Alt Eyes",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack2.png",
+        "channel": "b"
+      },
+      "defaultColor": "#ffaa42"
+    },
+    {
+      "id": "tongue",
+      "label": "Tongue",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack2.png",
+        "channel": "a"
+      },
+      "defaultColor": "#ffe34c"
+    },
+    {
+      "id": "mouth",
+      "label": "Inner Mouth",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack3.png",
+        "channel": "r"
+      },
+      "defaultColor": "#b35e28"
+    },
+    {
+      "id": "blush",
+      "label": "Blush",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack3.png",
+        "channel": "g"
+      },
+      "defaultColor": "#ff9d9d"
+    },
+    {
+      "id": "connectors",
+      "label": "Connectors",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack3.png",
+        "channel": "b"
+      },
+      "defaultColor": "#b5b5b5"
+    },
+    {
+      "id": "balls",
+      "label": "Balls",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack0.png",
+        "channel": "r"
+      },
+      "defaultColor": "#b3b3b3"
+    },
+    {
+      "id": "sheath",
+      "label": "Sheath",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack0.png",
+        "channel": "g"
+      },
+      "defaultColor": "#bbbbbb"
+    },
+    {
+      "id": "sheath_hole",
+      "label": "Sheath Hole",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack0.png",
+        "channel": "b"
+      },
+      "defaultColor": "#ff7d44"
+    },
+    {
+      "id": "dick_human",
+      "label": "Human Dick",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack0.png",
+        "channel": "a"
+      },
+      "defaultColor": "#b7b7b7"
+    },
+    {
+      "id": "dick_tip",
+      "label": "Dick Tip",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack1.png",
+        "channel": "r"
+      },
+      "defaultColor": "#ffb948"
+    },
+    {
+      "id": "dick_knotted",
+      "label": "Knotted Dick",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack1.png",
+        "channel": "g"
+      },
+      "defaultColor": "#ffb947"
+    },
+    {
+      "id": "dick_prehensile",
+      "label": "Prehensile Dick",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack1.png",
+        "channel": "b"
+      },
+      "defaultColor": "#ffc14b"
+    },
+    {
+      "id": "dick_horse",
+      "label": "Horse Dick",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack1.png",
+        "channel": "a"
+      },
+      "defaultColor": "#ffbc49"
+    },
+    {
+      "id": "horse_secondary",
+      "label": "Horse Dick Secondary",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack2.png",
+        "channel": "r"
+      },
+      "defaultColor": "#ffb847"
+    },
+    {
+      "id": "vag_lips",
+      "label": "Vag Lips",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack2.png",
+        "channel": "g"
+      },
+      "defaultColor": "#ffa841"
+    },
+    {
+      "id": "clit",
+      "label": "Clit",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack2.png",
+        "channel": "b"
+      },
+      "defaultColor": "#ff9450"
+    },
+    {
+      "id": "inner_vag",
+      "label": "Inner Vag",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack2.png",
+        "channel": "a"
+      },
+      "defaultColor": "#fd7640"
+    },
+    {
+      "id": "slit",
+      "label": "Slit",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack3.png",
+        "channel": "r"
+      },
+      "defaultColor": "#ff8045"
+    },
+    {
+      "id": "butthole",
+      "label": "Butthole",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/bits_pack3.png",
+        "channel": "g"
+      },
+      "defaultColor": "#ff9b54"
+    },
+    {
+      "id": "hoodie",
+      "label": "Hoodie Main",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack0.png",
+        "channel": "r"
+      },
+      "defaultColor": "#5f8891"
+    },
+    {
+      "id": "hoodie_secondary",
+      "label": "Hoodie Secondary",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack0.png",
+        "channel": "g"
+      },
+      "defaultColor": "#3f8375"
+    },
+    {
+      "id": "hoodie_tertiary",
+      "label": "Hoodie Tertiary",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack0.png",
+        "channel": "b"
+      },
+      "defaultColor": "#426f83"
+    },
+    {
+      "id": "hood",
+      "label": "Hood",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack0.png",
+        "channel": "a"
+      },
+      "defaultColor": "#453c65"
+    },
+    {
+      "id": "hoodie_strings",
+      "label": "Hoodie Strings",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack1.png",
+        "channel": "r"
+      },
+      "defaultColor": "#9381d8"
+    },
+    {
+      "id": "string_tips",
+      "label": "String Tips",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack1.png",
+        "channel": "g"
+      },
+      "defaultColor": "#a879e6"
+    },
+    {
+      "id": "hoodie_pockets",
+      "label": "Hoodie Pockets",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack1.png",
+        "channel": "b"
+      },
+      "defaultColor": "#489786"
+    },
+    {
+      "id": "zipper",
+      "label": "Zipper",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack1.png",
+        "channel": "a"
+      },
+      "defaultColor": "#d4d2e0"
+    },
+    {
+      "id": "pants",
+      "label": "Pants Main",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack2.png",
+        "channel": "r"
+      },
+      "defaultColor": "#5d6272"
+    },
+    {
+      "id": "pants_secondary",
+      "label": "Pants Secondary",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack2.png",
+        "channel": "g"
+      },
+      "defaultColor": "#bc6459"
+    },
+    {
+      "id": "pants_tertiary",
+      "label": "Pants Tertiary",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack2.png",
+        "channel": "b"
+      },
+      "defaultColor": "#303030"
+    },
+    {
+      "id": "pants_pockets",
+      "label": "Pants Pockets",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack2.png",
+        "channel": "a"
+      },
+      "defaultColor": "#a15a54"
+    },
+    {
+      "id": "pants_buttons",
+      "label": "Pants Buttons",
+      "material": [
+        "clothing"
+      ],
+      "mask": {
+        "texture": "textures/packed/clothing_pack3.png",
+        "channel": "r"
+      },
+      "defaultColor": "#dddce6"
+    }
+  ],
+  "emissiveRegions": [
+    {
+      "id": "emission",
+      "label": "Glow (Emission)",
+      "material": [
+        "body",
+        "eyes"
+      ],
+      "mask": {
+        "texture": "textures/packed/body_pack3.png",
+        "channel": "a"
+      },
+      "defaultColor": "#ffad45",
+      "intensity": 1.0
+    }
+  ],
+  "palettes": [
+    {
+      "id": "default",
+      "label": "Default (Gray)",
+      "resetToDefaults": true,
+      "colors": {},
+      "emissive": {}
+    },
+    {
+      "id": "alt1",
+      "label": "Palette 2 (Green)",
+      "colors": {
+        "under_belly": "#daed9c",
+        "secondary": "#4aaa51",
+        "main": "#226f27",
+        "shoulder": "#4aaa51",
+        "claws": "#1e1f28",
+        "balls": "#4aaa51",
+        "sheath": "#4aaa51",
+        "dick_human": "#4aaa51",
+        "horse_secondary": "#4aaa51"
+      },
+      "emissive": {}
+    },
+    {
+      "id": "alt2",
+      "label": "Palette 3 (Crimson)",
+      "colors": {
+        "under_belly": "#343642",
+        "secondary": "#1b1f2b",
+        "main": "#c51f38",
+        "shoulder": "#1b1f2b",
+        "claws": "#1e1f28",
+        "balls": "#1e1f28",
+        "sheath": "#1e1f28",
+        "dick_human": "#1e1f28"
+      },
+      "emissive": {}
+    },
+    {
+      "id": "alt3",
+      "label": "Palette 4 (Azure)",
+      "colors": {
+        "under_belly": "#cc5a26",
+        "secondary": "#6541d9",
+        "main": "#195aa6",
+        "shoulder": "#6541d9",
+        "claws": "#1e1f28",
+        "balls": "#6541d9",
+        "sheath": "#6541d9",
+        "dick_human": "#6541d9"
+      },
+      "emissive": {}
+    },
+    {
+      "id": "altGlow",
+      "label": "Alt Glow (Gold)",
+      "colors": {},
+      "emissive": {
+        "emission": "#ffc341"
+      }
+    },
+    {
+      "id": "clothingDark",
+      "label": "Dark Clothing",
+      "colors": {
+        "hoodie": "#232323",
+        "hoodie_secondary": "#1b1a1b",
+        "hood": "#171717",
+        "hoodie_strings": "#171717",
+        "string_tips": "#4a4a4a",
+        "hoodie_pockets": "#1b1a1b",
+        "zipper": "#de9730",
+        "pants_secondary": "#bb5c2a",
+        "pants_pockets": "#bb5c2a"
+      },
+      "emissive": {}
+    }
+  ]
+}

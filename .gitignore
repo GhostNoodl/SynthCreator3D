@@ -1,0 +1,35 @@
+# Licensed model content — never commit (see docs/licensing.md)
+assets/
+Stuff/
+tools/
+pipeline/out/
+*.blend
+*.blend1
+*.fbx
+*.obj
+*.psd
+*.spp
+*.unitypackage
+
+# JS/TS
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Generated model packs (npm run gen:placeholder)
+app/public/packs/
+
+# Tauri / Rust
+app/src-tauri/target/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,10 @@
+{
+  "body_pack0": { "r": "under_belly", "g": "secondary", "b": "main", "a": "shoulder" },
+  "body_pack1": { "r": "inner_visor", "g": "visor", "b": "claws", "a": "eyes" },
+  "body_pack2": { "r": "iris", "g": "eyebrows", "b": "alt_eyes", "a": "tongue" },
+  "body_pack3": { "r": "mouth", "g": "blush", "b": "connectors", "a": "emission" },
+  "clothing_pack0": { "r": "hoodie", "g": "hoodie_secondary", "b": "hoodie_tertiary", "a": "hood" },
+  "clothing_pack1": { "r": "hoodie_strings", "g": "string_tips", "b": "hoodie_pockets", "a": "zipper" },
+  "clothing_pack2": { "r": "pants", "g": "pants_secondary", "b": "pants_tertiary", "a": "pants_pockets" },
+  "clothing_pack3": { "r": "pants_buttons" }
+}

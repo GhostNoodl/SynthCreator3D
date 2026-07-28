@@ -1,0 +1,10 @@
+* text=auto
+
+# keep binary assets binary
+*.png binary
+*.ico binary
+*.icns binary
+*.exe binary
+*.dll binary
+*.zip binary
+*.pyd binary

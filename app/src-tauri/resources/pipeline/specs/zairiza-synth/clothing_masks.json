@@ -1,0 +1,15 @@
+{
+  "hoodie": ["Hoodie Color"],
+  "hoodie_secondary": ["Hoodie Secondary Color"],
+  "hoodie_tertiary": ["Hoodie Tertiary Color"],
+  "hood": ["Hoodie Hood"],
+  "hoodie_strings": ["Hoodie Strings"],
+  "string_tips": ["Hoodie String Tips"],
+  "hoodie_pockets": ["Hoodie Pockets Color"],
+  "zipper": ["Zipper Color"],
+  "pants": ["Pants Color"],
+  "pants_secondary": ["Pants Secondary Color"],
+  "pants_tertiary": ["Pants Tertiary Color"],
+  "pants_pockets": ["Pockets Color"],
+  "pants_buttons": ["Pants Buttons"]
+}
