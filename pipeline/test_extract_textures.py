@@ -219,6 +219,29 @@ def test_mask_invisible_layer_warns(psd_path: Path, out: Path) -> None:
     assert mask[29, 1] == 255 and mask[0, 0] == 0
 
 
+def test_mask_group_qualified_paths(psd_path: Path, out: Path) -> None:
+    """'Group/Layer' spec entries resolve to one exact path, not name matches."""
+    out.mkdir(parents=True, exist_ok=True)
+    spec_path = out / "path_spec.json"
+    spec_path.write_text(json.dumps({"trim_only": ["Details/trim"]}), encoding="utf-8")
+    rc = xt.main(["--mask", str(psd_path), "--spec", str(spec_path),
+                  "--out", str(out)])
+    assert rc == 0, "path-qualified mask extraction failed"
+    mask = np.array(Image.open(out / "masks" / "trim_only.png"))
+    assert mask.sum() == 255 * 16, mask.sum()  # the 4x4 blue block only
+    assert mask[3, 25] == 255 and mask[6, 6] == 0
+
+    # A nonexistent path is a hard error listing available paths.
+    bad_path = out / "bad_path_spec.json"
+    bad_path.write_text(json.dumps({"x": ["Details/nope"]}), encoding="utf-8")
+    try:
+        xt.main(["--mask", str(psd_path), "--spec", str(bad_path), "--out", str(out)])
+    except SystemExit as exc:
+        assert exc.code != 0, exc.code
+    else:
+        raise AssertionError("unknown path must fail loudly")
+
+
 def test_cli_subprocess(psd_path: Path, out: Path) -> None:
     """End-to-end: the file works as a real command-line program."""
     script = Path(xt.__file__)
@@ -286,6 +309,7 @@ def main() -> int:
         test_flatten_pixels,
         test_flatten_visibility_override,
         test_mask_pixels,
+        test_mask_group_qualified_paths,
         test_mask_missing_layer_is_loud,
         test_mask_invisible_layer_warns,
         test_cli_subprocess,

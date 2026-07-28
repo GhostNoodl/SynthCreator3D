@@ -1,0 +1,10 @@
+{
+  "main": ["Back", "Spine", "thigh cutouts", "Hip Circle", "Shin White Upper", "kneecap", "toe tops n shins", "toe claws", "fingers hands", "Shoulder pauldron", "Arm upperside", "Color Fill 4", "Neck", "Tail/Tail Topside"],
+  "underbody": ["Dark Base", "Grey Ass copy 2", "Toe Connections", "Toe Underside", "Jaw Underside", "Tail Underside"],
+  "secondary": ["Shin", "arm underside", "Elbow", "wrist", "finger tips", "shoulder pauldron underside", "Neck Edges"],
+  "mouth": ["Upper Mouth", "Lower Mouth"],
+  "tongue": ["Tongue"],
+  "sniffer": ["sniffer"],
+  "tail_lines": ["Tail Lines"],
+  "emission": ["Emission/Thigh Lights", "Emission/Shoulder Lights", "Antennae", "Glowy Lines"]
+}

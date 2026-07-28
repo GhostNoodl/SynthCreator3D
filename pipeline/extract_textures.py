@@ -77,6 +77,35 @@ def build_name_index(psd: PSDImage) -> dict[str, list[tuple[Layer, str]]]:
     return index
 
 
+def resolve_spec_name(
+    index: dict[str, list[tuple[Layer, str]]], name: str
+) -> list[tuple[Layer, str]] | None:
+    """Resolve a spec entry to layers.
+
+    Bare names match by layer name (possibly several layers — PSD names are
+    not unique). ``Group/Layer`` paths match one exact full path, for models
+    whose PSDs reuse the same name in different groups (e.g. Framework's
+    "Tail Topside" in both the Tail and Normals groups).
+    """
+    if "/" in name:
+        matches = [
+            (layer, path)
+            for entries in index.values()
+            for (layer, path) in entries
+            if path == name
+        ]
+        return matches or None
+    return index.get(name)
+
+
+def available_listing(index: dict[str, list[tuple[Layer, str]]]) -> str:
+    """All known names and paths, for not-found error messages."""
+    entries = sorted(index) + sorted(
+        path for entries in index.values() for _layer, path in entries if "/" in path
+    )
+    return "\n  ".join(entries) if entries else "(none)"
+
+
 # ---------------------------------------------------------------------------
 # --list
 # ---------------------------------------------------------------------------
@@ -246,13 +275,11 @@ def cmd_mask(psd: PSDImage, spec_path: Path, out: Path) -> int:
     for mask_name, layer_names in spec.items():
         mask = np.zeros((canvas_size[1], canvas_size[0]), dtype=np.uint8)
         for name in layer_names:
-            matches = index.get(name)
+            matches = resolve_spec_name(index, name)
             if not matches:
-                available = sorted(index)
-                listing = "\n  ".join(available) if available else "(none)"
                 raise die(
                     f"mask {mask_name!r}: layer {name!r} not found in PSD.\n"
-                    f"available layer names:\n  {listing}",
+                    f"available layer names/paths:\n  {available_listing(index)}",
                     code=2,
                 )
             if len(matches) > 1:
@@ -262,21 +289,24 @@ def cmd_mask(psd: PSDImage, spec_path: Path, out: Path) -> int:
                     f"{len(matches)} layers ({paths}); combining all of them"
                 )
             for layer, _path in matches:
-                if not layer.visible:
-                    # An explicitly named layer is wanted for its coverage
-                    # even when the PSD ships with it toggled off (e.g. this
-                    # model's hidden "Tail Lights"/"Spine Lights" emission
-                    # variants). Force-show it — and its ancestor groups, a
-                    # hidden parent suppresses the whole subtree — for the
-                    # coverage render.
+                # An explicitly named layer is wanted for its coverage even
+                # when the PSD ships it toggled off — or inside a group that
+                # is toggled off (a hidden ancestor suppresses the whole
+                # subtree; e.g. Framework's hidden "Emission" group whose
+                # children are individually visible). Force-show the chain.
+                chain: list[Layer] = []
+                node: Layer | None = layer
+                while isinstance(node, Layer):  # stops at PSDImage root
+                    chain.append(node)
+                    node = node.parent
+                if any(not n.visible for n in chain):
                     warn(
-                        f"mask {mask_name!r}: layer {name!r} is invisible in "
-                        f"the PSD; force-showing it for mask extraction"
+                        f"mask {mask_name!r}: layer {name!r} or an ancestor "
+                        f"group is invisible in the PSD; force-showing the "
+                        f"chain for mask extraction"
                     )
-                    node: Layer | None = layer
-                    while isinstance(node, Layer):  # stops at PSDImage root
-                        node.visible = True
-                        node = node.parent
+                    for n in chain:
+                        n.visible = True
                 if layer.opacity < 255:
                     warn(
                         f"mask {mask_name!r}: layer {name!r} has opacity "

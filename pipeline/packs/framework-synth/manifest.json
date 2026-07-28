@@ -1,0 +1,526 @@
+{
+  "schemaVersion": 1,
+  "id": "framework-synth",
+  "name": "Framework the Synth (Irongut)",
+  "model": "model.glb",
+  "materials": {
+    "body": {
+      "glbMaterial": "body",
+      "albedo": "textures/body_albedo.png"
+    },
+    "visor": {
+      "glbMaterial": "visor",
+      "albedo": "textures/visor_albedo.png"
+    }
+  },
+  "toggleGroups": [],
+  "sliders": [
+    {
+      "id": "helmetSlim",
+      "label": "Slim",
+      "group": "Helmet",
+      "morphs": [
+        "Helmet - Slim1"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "helmetSquare",
+      "label": "Square",
+      "group": "Helmet",
+      "morphs": [
+        "Helmet - Square"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "helmetSuperSquare",
+      "label": "Super Square",
+      "group": "Helmet",
+      "morphs": [
+        "Helmet - SuperSquare"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "helmetJutted",
+      "label": "Jutted Extended",
+      "group": "Helmet",
+      "morphs": [
+        "Helmet - Jutted Extended"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "helmetMuzzle",
+      "label": "Muzzle",
+      "group": "Helmet",
+      "morphs": [
+        "Helmet - Muzzle"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "visorBiggerBack",
+      "label": "Bigger Back",
+      "group": "Visor Shape",
+      "morphs": [
+        "Visor - Bigger Back"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "visorBiggerFront",
+      "label": "Bigger Front",
+      "group": "Visor Shape",
+      "morphs": [
+        "Visor - Bigger Front"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "visorDome",
+      "label": "Dome",
+      "group": "Visor Shape",
+      "morphs": [
+        "Visor - Dome"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "visorDomeSquare2",
+      "label": "Dome Square 2",
+      "group": "Visor Shape",
+      "morphs": [
+        "Visor - Dome - Square 2"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "seamHideFront",
+      "label": "Hide Front",
+      "group": "Visor Seam",
+      "morphs": [
+        "VisorSeam - HideFront"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "seamHideLaterals",
+      "label": "Hide Laterals",
+      "group": "Visor Seam",
+      "morphs": [
+        "VisorSeam - Hide Laterals"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "seamHideCenter",
+      "label": "Hide Center",
+      "group": "Visor Seam",
+      "morphs": [
+        "VisorSeam - Hide Center"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "hornsSquared",
+      "label": "Squared",
+      "group": "Horns",
+      "morphs": [
+        "Horns - Squared"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "hornsSlim",
+      "label": "Slim",
+      "group": "Horns",
+      "morphs": [
+        "Horns - Slim"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "hornsNotched",
+      "label": "Notched",
+      "group": "Horns",
+      "morphs": [
+        "Horns - NOTCHED"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "hornsFlared",
+      "label": "Flared",
+      "group": "Horns",
+      "morphs": [
+        "Horns - Flared"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "hornsPointed",
+      "label": "Pointed",
+      "group": "Horns",
+      "morphs": [
+        "Horns - Pointed"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "bodyThicker",
+      "label": "Thicker",
+      "group": "Body Shape",
+      "morphs": [
+        "Body - Thicker"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "bodyThickerV2",
+      "label": "Thicker v2",
+      "group": "Body Shape",
+      "morphs": [
+        "Body - Thicker v2"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "bodyThickerX3",
+      "label": "Thicker x3",
+      "group": "Body Shape",
+      "morphs": [
+        "Body - Thicker x3"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "bodyChubbo",
+      "label": "Chubbo",
+      "group": "Body Shape",
+      "morphs": [
+        "Body - Chubbo"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "bodyStuffed",
+      "label": "Stuffed",
+      "group": "Body Shape",
+      "morphs": [
+        "Body - Stuffed"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "bodyChubboStuffed",
+      "label": "Chubbo + Stuffed",
+      "group": "Body Shape",
+      "morphs": [
+        "Body - ChubboStuffed"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "bodyFatButtThighs",
+      "label": "Fat Butt + Thighs",
+      "group": "Body Shape",
+      "morphs": [
+        "Body - FatButtThighs"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "shinsThicker",
+      "label": "Thicker Shins",
+      "group": "Legs & Feet",
+      "morphs": [
+        "Shins - Thicker"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "shinsPokeThrough",
+      "label": "Shins Poke Through",
+      "group": "Legs & Feet",
+      "morphs": [
+        "Shins - Poke Through"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "thighsThinner",
+      "label": "Thinner Thighs",
+      "group": "Legs & Feet",
+      "morphs": [
+        "Thighs - Thinner"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "toeNoClaws",
+      "label": "No Claws",
+      "group": "Legs & Feet",
+      "morphs": [
+        "Toe - No Claws"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "toeReverseMiddle",
+      "label": "Reverse Middle Toe",
+      "group": "Legs & Feet",
+      "morphs": [
+        "Toe - Reverse Middle Toe"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "toeReverseMiddleNoClaw",
+      "label": "Reverse Middle No-Claw",
+      "group": "Legs & Feet",
+      "morphs": [
+        "Toe - Reverse Middle No-Claw"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "tailSegmentOverlap",
+      "label": "Segment Overlap",
+      "group": "Tail",
+      "morphs": [
+        "Tail - Segment Overlap"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "tailChubboX4",
+      "label": "Chubbo x4",
+      "group": "Tail",
+      "morphs": [
+        "Tail - Chubbo x4"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "fingersTwo",
+      "label": "Two Fingers",
+      "group": "Hands",
+      "morphs": [
+        "Fingers - Two"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "mouthOpen",
+      "label": "Mouth Open",
+      "group": "Face",
+      "morphs": [
+        "Mouth Open"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "mouthOpen2",
+      "label": "Mouth Open 2",
+      "group": "Face",
+      "morphs": [
+        "Mouth Open 2"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    },
+    {
+      "id": "neckThroatFix",
+      "label": "Neck Throat Fix",
+      "group": "Face",
+      "morphs": [
+        "Neck Throat Fix"
+      ],
+      "min": 0,
+      "max": 1,
+      "default": 0
+    }
+  ],
+  "textureSets": [],
+  "colorRegions": [
+    {
+      "id": "underbody",
+      "label": "Underbody",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/pack0.png",
+        "channel": "g"
+      },
+      "defaultColor": "#494444"
+    },
+    {
+      "id": "secondary",
+      "label": "Secondary",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/pack0.png",
+        "channel": "b"
+      },
+      "defaultColor": "#ffffff"
+    },
+    {
+      "id": "main",
+      "label": "Main Plates",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/pack0.png",
+        "channel": "r"
+      },
+      "defaultColor": "#ffffff"
+    },
+    {
+      "id": "mouth",
+      "label": "Inner Mouth",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/pack0.png",
+        "channel": "a"
+      },
+      "defaultColor": "#ff9840"
+    },
+    {
+      "id": "tongue",
+      "label": "Tongue",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/pack1.png",
+        "channel": "r"
+      },
+      "defaultColor": "#ffa841"
+    },
+    {
+      "id": "sniffer",
+      "label": "Sniffer",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/pack1.png",
+        "channel": "g"
+      },
+      "defaultColor": "#000000"
+    },
+    {
+      "id": "tail_lines",
+      "label": "Tail Lines",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/pack1.png",
+        "channel": "b"
+      },
+      "defaultColor": "#000000"
+    }
+  ],
+  "emissiveRegions": [
+    {
+      "id": "emission",
+      "label": "Glow (Emission)",
+      "material": [
+        "body"
+      ],
+      "mask": {
+        "texture": "textures/packed/pack1.png",
+        "channel": "a"
+      },
+      "defaultColor": "#ffa741",
+      "intensity": 1.0
+    }
+  ],
+  "palettes": [
+    {
+      "id": "default",
+      "label": "Default (Original)",
+      "resetToDefaults": true,
+      "colors": {},
+      "emissive": {}
+    }
+  ]
+}

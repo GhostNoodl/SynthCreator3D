@@ -1,0 +1,4 @@
+{
+  "pack0": { "r": "main", "g": "underbody", "b": "secondary", "a": "mouth" },
+  "pack1": { "r": "tongue", "g": "sniffer", "b": "tail_lines", "a": "emission" }
+}
