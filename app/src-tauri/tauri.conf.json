@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "SynthCreator3D",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "identifier": "com.synthcreator3d.app",
   "build": {
     "frontendDist": "../dist",
@@ -23,7 +23,9 @@
       "csp": null,
       "assetProtocol": {
         "enable": true,
-        "scope": ["$APPDATA/**"]
+        "scope": [
+          "$APPDATA/**"
+        ]
       }
     }
   },
@@ -42,6 +44,18 @@
     ],
     "android": {
       "debugApplicationIdSuffix": ".debug"
+    },
+    "createUpdaterArtifacts": true
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDRGODA0RDE3Rjg1MEQyM0QKUldROTBsRDRGMDJBVDlsM3cxYzZyM2RURi9SdkJ3YWxuK0o5SXZ1MTJTMUZXaXJWR0w1UGcxM2QK",
+      "endpoints": [
+        "https://github.com/GhostNoodl/SynthCreator3D/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
     }
   }
 }

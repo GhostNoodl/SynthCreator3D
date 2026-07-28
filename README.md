@@ -49,6 +49,28 @@ npm run tauri build    # production build -> NSIS installer in app/src-tauri/tar
 
 The Vite dev server is pinned to port 5173 (`strictPort`) to match Tauri's devUrl.
 
+### Cutting a release (auto-updater feed)
+
+The app checks `releases/latest/download/latest.json` on startup and offers
+to update itself (minisign-verified). To publish a release:
+
+```bash
+cd app
+# 1. bump version in src-tauri/tauri.conf.json
+# 2. signed build (private key lives at ~/.tauri/synthcreator3d.key — back it
+#    up somewhere safe and NEVER commit it; *.key is gitignored)
+export TAURI_SIGNING_PRIVATE_KEY_PATH="$HOME/.tauri/synthcreator3d.key"
+npm run tauri build
+# 3. generate the updater manifest
+npm run release:manifest   # writes target/release/bundle/latest.json
+# 4. publish: create the release and attach BOTH artifacts
+gh release create v<X.Y.Z> --title "SynthCreator3D v<X.Y.Z>" --notes "..." \
+  src-tauri/target/release/bundle/nsis/SynthCreator3D_<X.Y.Z>_x64-setup.exe \
+  src-tauri/target/release/bundle/latest.json
+```
+
+If the key is lost, generate a new one (`npx tauri signer generate -w ~/.tauri/synthcreator3d.key --ci --force`) and update `plugins.updater.pubkey` in `tauri.conf.json` — old installs will then fail signature checks and need a one-time manual update.
+
 ### Authoring a pack for a new model
 
 1. Inventory the model's structure (shape keys, meshes, materials, UV maps): `blender --background --python pipeline/blender_export.py -- inventory <model.blend> out/`
@@ -65,5 +87,5 @@ The Vite dev server is pinned to port 5173 (`strictPort`) to match Tauri's devUr
 - [x] Pose library (T-pose, Relaxed, Kneel)
 - [x] Tauri desktop shell + NSIS installer + app icon
 - [x] In-app import flow (convert user's own files; progress bar, variant guard)
+- [x] Auto-updater (minisign-verified, GitHub releases feed)
 - [ ] More models (the manifest/pipeline system is built for it — each model is a new pack)
-- [ ] Auto-updater

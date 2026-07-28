@@ -390,3 +390,15 @@ textarea.share-code {
   word-break: break-word;
   color: #c96a6a;
 }
+
+.update-notes {
+  max-height: 220px;
+  overflow: auto;
+  background: #14171d;
+  border: 1px solid #303948;
+  border-radius: 6px;
+  padding: 8px 10px;
+  white-space: pre-wrap;
+  font-size: 12px;
+  margin: 0 0 12px;
+}

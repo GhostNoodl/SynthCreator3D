@@ -11,11 +11,14 @@
     "preview": "vite preview",
     "gen:placeholder": "node scripts/make-placeholder-pack.mjs",
     "smoke": "node scripts/make-placeholder-pack.mjs && node scripts/smoke.mjs && node scripts/check-real-manifest.mjs",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "release:manifest": "node scripts/make-update-manifest.mjs"
   },
   "dependencies": {
     "@tauri-apps/api": "^2.11.1",
     "@tauri-apps/plugin-dialog": "^2.7.2",
+    "@tauri-apps/plugin-process": "^2.3.1",
+    "@tauri-apps/plugin-updater": "^2.10.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "three": "^0.185.1",

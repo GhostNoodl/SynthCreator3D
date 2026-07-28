@@ -33,3 +33,8 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# update signing keys must never be committed
+*.key
+*.key.pub
+Stuff2/

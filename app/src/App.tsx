@@ -11,6 +11,9 @@ import { RightPanel } from './ui/RightPanel.tsx';
 import { Toolbar } from './ui/Toolbar.tsx';
 import type { PackEntry } from './ui/Toolbar.tsx';
 import type { ImportedPackInfo } from './ui/ImportWizard.tsx';
+import { UpdatePrompt } from './ui/UpdatePrompt.tsx';
+import { checkForUpdate } from './updater.ts';
+import type { UpdateInfo } from './updater.ts';
 
 /** Pack directory listing, served from public/. The first pack loads by default. */
 const PACK_INDEX_URL = 'packs/index.json';
@@ -77,7 +80,24 @@ export default function App() {
   const [loadTarget, setLoadTarget] = useState<PackTarget | null>(null);
   /** NSFW pack waiting on the 18+ confirmation (nothing loads while set). */
   const [nsfwGate, setNsfwGate] = useState<PackTarget | null>(null);
+  /** Available app update (tauri only), shown once at startup. */
+  const [updateInfo, setUpdateInfo] = useState<UpdateInfo | null>(null);
   const manifest = usePresetStore((s) => s.manifest);
+
+  // One silent update check a few seconds after startup (tauri shell only).
+  useEffect(() => {
+    if (!isTauri()) return;
+    let cancelled = false;
+    const timer = setTimeout(() => {
+      void checkForUpdate().then((info) => {
+        if (!cancelled && info) setUpdateInfo(info);
+      });
+    }, 4000);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, []);
 
   /**
    * Fetch + validate a pack's manifest, then either load it or — for NSFW
@@ -256,6 +276,10 @@ export default function App() {
             </div>
           </div>
         </div>
+      )}
+
+      {updateInfo && !nsfwGate && (
+        <UpdatePrompt info={updateInfo} onDismiss={() => setUpdateInfo(null)} />
       )}
     </div>
   );
