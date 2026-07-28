@@ -58,8 +58,11 @@ to update itself (minisign-verified). To publish a release:
 cd app
 # 1. bump version in src-tauri/tauri.conf.json
 # 2. signed build (private key lives at ~/.tauri/synthcreator3d.key — back it
-#    up somewhere safe and NEVER commit it; *.key is gitignored)
-export TAURI_SIGNING_PRIVATE_KEY_PATH="$HOME/.tauri/synthcreator3d.key"
+#    up somewhere safe and NEVER commit it; *.key is gitignored).
+#    BOTH env vars are required: the bundler reads the key CONTENT and skips
+#    the interactive password prompt only when PASSWORD is set (empty here).
+export TAURI_SIGNING_PRIVATE_KEY="$(cat ~/.tauri/synthcreator3d.key)"
+export TAURI_SIGNING_PRIVATE_KEY_PASSWORD=""
 npm run tauri build
 # 3. generate the updater manifest
 npm run release:manifest   # writes target/release/bundle/latest.json
