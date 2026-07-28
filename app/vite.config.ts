@@ -10,5 +10,10 @@ export default defineConfig({
     // Tauri's devUrl points here; fail loudly instead of silently shifting ports
     port: 5173,
     strictPort: true,
+    watch: {
+      // cargo writes here during `tauri dev`; watching it crashes with EBUSY
+      // on Windows when the DLL is locked mid-write
+      ignored: ['**/src-tauri/target/**'],
+    },
   },
 });
